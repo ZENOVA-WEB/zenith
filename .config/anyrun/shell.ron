@@ -1,4 +1,0 @@
-Config(
-  prefix: "!",
-  shell: "bash", // or "zsh"
-)

@@ -27,6 +27,33 @@ setup_quickshell() {
     log_success "Quickshell setup complete."
 }
 
+# Function to clone and setup Hyprland-dots
+setup_hyprland_dots() {
+    log_step "✨ Setting up Hyprland-dots..."
+    local hypr_dir="$HOME/.config/hypr"
+    local repo_url="https://github.com/zaeemali272/Hyprland-dots.git"
+
+    # FORCE CHECK: Is it actually a git repo?
+    if [[ -d "$hypr_dir" ]]; then
+        if [[ ! -d "$hypr_dir/.git" ]]; then
+            log_warn "Directory exists but is NOT a git repo. Deleting for fresh clone..."
+            rm -rf "$hypr_dir"
+        fi
+    fi
+
+    if [[ ! -d "$hypr_dir" ]]; then
+        log "Cloning Hyprland-dots from GitHub..."
+        git clone "$repo_url" "$hypr_dir" || log_error "Failed to clone Hyprland-dots"
+    else
+        log "Updating existing Hyprland-dots in $hypr_dir..."
+        # Force a reset in case local files are messed up
+        git -C "$hypr_dir" fetch --all
+        git -C "$hypr_dir" reset --hard origin/main || log_warn "Git reset failed."
+    fi
+    
+    log_success "Hyprland-dots setup complete."
+}
+
 # Function to setup extra themes
 setup_extra_themes() {
     if [[ "$SKIP_THEMES" -eq 1 ]]; then
@@ -177,6 +204,7 @@ sync_dotfiles() {
     fi
 
     setup_quickshell
+    setup_hyprland_dots
     sanitize_dotfiles
     log_success "Dotfiles synced."
 }

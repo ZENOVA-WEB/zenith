@@ -1,45 +1,50 @@
 {
   "drivers": {
-    "pacman": ["acpi", "acpi_call", "nss-mdns", "sof-firmware", "tlp"],
+    "pacman": [
+      "acpi",
+      "acpi_call",
+      "nss-mdns",
+      "sof-firmware",
+      "tlp"
+    ],
     "aur": []
   },
   "extras": {
-    "pacman": ["kdeconnect", "obsidian", "yt-dlp", "tor", "python-pysocks"],
-    "aur": ["gallery-dl", "pear-desktop-bin", "element-desktop"]
+    "pacman": [
+      "python-pysocks"
+    ],
+    "aur": [
+      "pear-desktop-bin",
+      "element-desktop"
+    ]
   },
   "recommended": {
     "pacman": [],
     "aur": [
       "freedownloadmanager-bin",
-      "visual-studio-code-bin",
+      "antigravity-bin",
       "zen-browser-bin",
-      "element-desktop",
       "librewolf-bin"
-
     ]
   },
   "themes": {
     "pacman": [
       "kvantum",
       "kvantum-qt5",
-      "kvantum-theme-materia",
-      "materia-gtk-theme",
       "qt5ct",
       "qt6ct"
     ],
-    "aur": ["bibata-cursor-theme", "illogical-impulse-oneui4-icons-git"]
+    "aur": [
+      "bibata-cursor-theme",
+      "illogical-impulse-oneui4-icons-git"
+    ]
   },
   "gaming": {
     "pacman": [
-      "gamemode",
-      "goverlay",
-      "lutris",
-      "mangohud",
-      "steam",
       "wine",
       "winetricks"
     ],
-    "aur": ["protonup-qt"]
+    "aur": []
   },
   "fonts": {
     "pacman": [
@@ -53,14 +58,20 @@
     "aur": []
   },
   "aur": {
-    "pacman": ["cliphist", "eog", "hyprshot", "ncdu", "xdotool"],
+    "pacman": [
+      "cliphist",
+      "eog",
+      "hyprshot",
+      "ncdu",
+      "xdotool"
+    ],
     "aur": [
-      "anyrun",
       "quickshell-git",
       "rar",
       "ttf-material-icons-git",
       "ttf-material-symbols-variable-git",
-      "libayatana-appindicator-glib"    ]
+      "libayatana-appindicator-glib"
+    ]
   },
   "core": {
     "pacman": [
@@ -92,7 +103,7 @@
       "gst-plugins-good",
       "gvfs",
       "inotify-tools",
-      "iwd",
+      "networkmanager",
       "jq",
       "mpv",
       "mpv-mpris",
@@ -131,6 +142,8 @@
       "zed",
       "zip"
     ],
-    "aur": ["mpvpaper"]
+    "aur": [
+      "mpvpaper"
+    ]
   }
 }
