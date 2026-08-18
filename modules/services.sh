@@ -15,19 +15,14 @@ setup_system_services() {
     fi
 
     # Handle Network Manager vs iwd
-    if systemctl is-active --quiet NetworkManager.service; then
-        log_warn "Disabling NetworkManager to use iwd (Zenith default)..."
-        sudo systemctl disable --now NetworkManager.service 2>/dev/null || true
+    if systemctl is-active --quiet iwd.service; then
+        log_warn "Disabling iwd to use NetworkManager (Zenith default)..."
+        sudo systemctl disable --now iwd.service 2>/dev/null || true
     fi
 
-    # iwd setup
-    sudo mkdir -p /etc/iwd
-    if [[ -f /etc/iwd/main.conf ]]; then
-         sudo cp /etc/iwd/main.conf /etc/iwd/main.conf$BACKUP_SUFFIX
-    fi
-
-    echo -e "[General]
-EnableNetworkConfiguration=true" | sudo tee /etc/iwd/main.conf >/dev/null
+    # Enable NetworkManager
+    log_info "Enabling NetworkManager..."
+    sudo systemctl enable --now NetworkManager.service 2>/dev/null || true
 
     # Bluetooth Autofix
     if [[ -f "$DOTS_DIR/systemd/system/bluetooth-autofix.service" ]]; then

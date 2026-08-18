@@ -231,7 +231,6 @@ full_install() {
     bash scripts/power-profile-setup.sh || log_warn "Power profile setup failed."
     setup_autologin
     optimize_bootloader
-    bash scripts/install-fusuma.sh || log_warn "Fusuma installation failed."
     
     echo -e "
 ${BOLD}${CYAN}❓ Would you like to install extra themes, animations and wallpapers?${NC}"
