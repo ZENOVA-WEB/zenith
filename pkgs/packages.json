@@ -24,7 +24,7 @@
       "freedownloadmanager-bin",
       "antigravity-bin",
       "zen-browser-bin",
-      "librewolf-bin"
+      "thorium-browser-bin"
     ]
   },
   "themes": {
@@ -153,6 +153,7 @@
       "xdg-user-dirs",
       "xdg-utils",
       "zed",
+      "zenith",
       "zip"
     ],
     "aur": [

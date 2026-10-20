@@ -194,6 +194,9 @@ install_minimal_packages() {
     # Install quickshell for the post-boot UI
     install_aur "quickshell-git"
 
+    # Install Zenith CLI
+    install_pkgs "zenith"
+
     mark_done "minimal_packages_installed"
 }
 
